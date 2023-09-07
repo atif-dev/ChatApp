@@ -26,9 +26,12 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <!--Column for contact chat list-->
                 <ColumnDefinition Width="Auto"/>
+                <!--Conversation Area-->
                 <ColumnDefinition/>
-                <ColumnDefinition Width="Auto"/>
+                <!--Profile info-->
+                <ColumnDefinition Width="Auto"/> 
             </Grid.ColumnDefinitions>
             <!--Title Bar-->
             <Border
@@ -69,6 +72,39 @@
                         
                 </Grid>
             </Border>
+            
+            <!--Contact chat list-->
+            <Grid Grid.Row="1" MaxWidth="406">
+                <Grid.RowDefinitions>
+                    <!--Title and Search Options etc.-->
+                    <RowDefinition Height="Auto" />
+                    <!--Search Box-->
+                    <RowDefinition Height="Auto" />
+                    <!--Status Thumbs-->
+                    <RowDefinition Height="Auto" />
+                    <!--Chats Lists-->
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!--Title and Search Options etc.-->
+                <Grid Height="75" Margin="15,0">
+                    <Grid.ColumnDefinitions>
+                        <!--Title-->
+                        <ColumnDefinition Width="Auto" />
+                        
+                        <!--Blank-->
+                        <ColumnDefinition Width="Auto" />
+                        
+                        <!--Search Button-->
+                        <ColumnDefinition Width="40" />
+                        <!--More Options Button-->
+                        <ColumnDefinition Width="40" />
+
+                    </Grid.ColumnDefinitions>
+                    
+                </Grid>
+
+            </Grid>
         </Grid>
     </Border>
 
