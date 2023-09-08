@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ChatApp"
+        xmlns:local="clr-namespace:ChatApp" xmlns:customcontrols="clr-namespace:ChatApp.CustomControls"
         mc:Ignorable="d"
         x:Name="mainWindow"
         AllowsTransparency="True"
@@ -74,7 +74,7 @@
             </Border>
             
             <!--Contact chat list-->
-            <Grid Grid.Row="1" MaxWidth="406">
+            <Grid Grid.Row="1" MinWidth="406">
                 <Grid.RowDefinitions>
                     <!--Title and Search Options etc.-->
                     <RowDefinition Height="Auto" />
@@ -99,11 +99,61 @@
                         <ColumnDefinition Width="40" />
                         <!--More Options Button-->
                         <ColumnDefinition Width="40" />
-
                     </Grid.ColumnDefinitions>
-                    
-                </Grid>
 
+                    <TextBlock
+                        Text="Chats"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                    />
+                    
+                    <!--Search Button-->
+                    <Button
+                        Grid.Column="2"
+                        x:Name="ChatSearchButton"
+                        Content="{StaticResource search}"
+                        Style="{StaticResource IconButtonStyle}"
+                    />
+                    
+                    <!--More options popup-->
+                    <ToggleButton
+                        Grid.Column="3"
+                        Name="btnMoreOptions"
+                        Content="{StaticResource more}"
+                        Style="{StaticResource ToggleIconButtonStyle}"
+                    />
+                </Grid>
+                
+                <!--#region SearchBox-->
+                <!--To Do: Add SearchBox open/close triggers-->
+                <Border
+                    Background="#dce1de"
+                    CornerRadius="15"
+                    Grid.Row="1"
+                    Margin="20"
+                    Height="50"
+                    x:Name="searchBoxBorder"
+                    FocusManager.FocusedElement="{Binding ElementName=searchQuery}"
+                    >
+                    <TextBox
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Name="searchQuery"
+                        Padding="12,0"
+                        Text="Search Text"
+                        VerticalContentAlignment="Center"
+                        VerticalAlignment="Stretch"
+                    />
+                </Border>
+                <!--#endregion SearchBox-->
+                
+                <!--#region Status Thumbnails-->
+                <customcontrols:StatusThumbs Grid.Row="2"/>
+
+                <!--#endregion Thumbnails-->
+                
             </Grid>
         </Grid>
     </Border>
